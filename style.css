@@ -1,0 +1,135 @@
+/* Base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #000;
+  color: #fff;
+  font-family: 'Courier New', monospace;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.void-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.center-symbol, .symbol {
+  font-size: 8rem;
+  opacity: 0;
+  animation: fadeIn 2s ease-out forwards;
+  animation-delay: 0.5s;
+  text-shadow: 0 0 10px #fff, 0 0 30px #fff;
+}
+
+.symbol {
+  font-size: 6rem;
+}
+
+.glitch {
+  animation: glitch 1s infinite;
+}
+
+.quote {
+  font-size: 1.5rem;
+  max-width: 800px;
+  line-height: 2.2rem;
+  opacity: 0;
+  animation: fadeInText 2s ease-out forwards;
+  animation-delay: 0.3s;
+  text-align: center;
+}
+
+.author {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  opacity: 0.5;
+}
+
+.line-glitch {
+  width: 60%;
+  height: 2px;
+  background: white;
+  animation: glitchLine 2s infinite;
+}
+
+.footer {
+  text-align: center;
+  padding: 4rem 1rem;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  font-style: italic;
+  letter-spacing: 1px;
+}
+
+.footer .dim {
+  font-size: 0.9rem;
+  opacity: 0.3;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+  }
+  20% {
+    text-shadow: -2px 0 red, 2px 0 blue;
+  }
+  40% {
+    text-shadow: 2px 0 blue, -2px 0 red;
+  }
+  60% {
+    text-shadow: -2px 0 blue, 2px 0 red;
+  }
+  80% {
+    text-shadow: 2px 0 red, -2px 0 blue;
+  }
+  100% {
+    text-shadow: none;
+  }
+}
+
+@keyframes glitchLine {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
+}
